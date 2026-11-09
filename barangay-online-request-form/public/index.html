@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Submit barangay document requests online.">
+  <title>Barangay Online Request Form</title><link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav"><a class="brand" href="/">BRGY<span>ONLINE</span></a><a class="nav-link" href="/admin">Administrator</a></div>
+  </header>
+  <main class="container">
+    <section class="hero">
+      <p class="eyebrow">BARANGAY PUBLIC SERVICE</p>
+      <h1>Barangay Online<br><span>Request Form</span></h1>
+      <p>Request your barangay documents conveniently online. Complete the form below and keep your reference number for follow-up.</p>
+    </section>
+    <section class="form-card">
+      <div class="section-heading"><div><p class="eyebrow">ONLINE APPLICATION</p><h2>Request a Document</h2></div><span class="required-note">* Required fields</span></div>
+      <form id="requestForm">
+        <div class="form-grid">
+          <label>Full Name *<input name="fullName" required maxlength="100" placeholder="Juan Dela Cruz"></label>
+          <label>Email Address *<input name="email" type="email" required maxlength="120" placeholder="juan@email.com"></label>
+          <label>Contact Number *<input name="contactNumber" required maxlength="30" placeholder="09XX XXX XXXX"></label>
+          <label>Complete Address *<input name="address" required maxlength="250" placeholder="House No., Street, Purok/Sitio"></label>
+          <label class="full">Document Requested *
+            <select name="documentType" required>
+              <option value="">Select a document</option>
+              <option>Barangay Clearance</option><option>Certificate of Indigency</option>
+              <option>Certificate of Residency</option><option>Barangay ID</option><option>Other</option>
+            </select>
+          </label>
+          <label class="full">Purpose of Request *<textarea name="purpose" rows="3" required maxlength="500" placeholder="Briefly explain why you need this document."></textarea></label>
+          <label class="full">Additional Notes (Optional)<textarea name="notes" rows="2" maxlength="500" placeholder="Other information you want the barangay office to know."></textarea></label>
+        </div>
+        <div class="form-footer"><p>Your information will be used to process this barangay request.</p><button class="btn" type="submit">Submit Request <span>→</span></button></div>
+        <div id="formMessage" class="message" role="status" aria-live="polite"></div>
+      </form>
+    </section>
+    <section class="info-strip"><div><strong>01</strong><span>Fill out the form</span></div><div><strong>02</strong><span>Submit your request</span></div><div><strong>03</strong><span>Wait for admin review</span></div></section>
+  </main>
+  <footer><div class="container">Barangay Online Request Form · For authorized barangay use</div></footer>
+  <script src="/app.js"></script>
+</body></html>

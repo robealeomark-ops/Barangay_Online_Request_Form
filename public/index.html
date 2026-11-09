@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Submit barangay document requests online.">
+  <title>Barangay Online Request Form</title><link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="site-header">
+  <div class="container nav">
+
+    <!-- Barangay Logo and Name -->
+    <a class="brand" href="/">
+      <svg class="barangay-icon" viewBox="0 0 24 24"
+           fill="none" stroke="currentColor"
+           stroke-width="1.8" stroke-linecap="round"
+           stroke-linejoin="round" aria-hidden="true">
+        <path d="M3 21h18"/>
+        <path d="M5 21V9l7-5 7 5v12"/>
+        <path d="M9 21v-6h6v6"/>
+        <path d="M9 10h.01M15 10h.01"/>
+        <path d="M12 4V2"/>
+      </svg>
+      <span>BRGY<span>ONLINE</span></span>
+    </a>
+
+    <!-- Navigation Buttons -->
+    <div class="nav-actions">
+      <button class="help-btn" id="helpBtn" type="button">
+        <span>?</span> HELP
+      </button>
+
+      <a class="nav-link" href="/admin">Administrator</a>
+    </div>
+
+  </div>
+</header>
+  <main class="container">
+    <section class="hero">
+      <p class="eyebrow">BARANGAY PUBLIC SERVICE</p>
+      <h1>Barangay Online<br><span>Request Form</span></h1>
+      <p>Request your barangay documents conveniently online. Complete the form below and keep your reference number for follow-up.</p>
+    </section>
+    <section class="form-card">
+      <div class="section-heading"><div><p class="eyebrow">ONLINE APPLICATION</p><h2>Request a Document</h2></div><span class="required-note">* Required fields</span></div>
+      <form id="requestForm">
+        <div class="form-grid">
+
+          <label>Full Name *<input name="fullName" required maxlength="100" placeholder="Juan Dela Cruz"></label>
+          <label>Email Address *<input name="email" type="email" required maxlength="120" placeholder="juan@email.com"></label>
+          <label>Contact Number *<input name="contactNumber" required maxlength="30" placeholder="09XX XXX XXXX"></label>
+          <label>Complete Address *<input name="address" required maxlength="250" placeholder="House No., Street, Purok/Sitio"></label>
+          <label class="full">Document Requested *
+            <select name="documentType" required>
+
+              <option value="">Select a document</option>
+              <option>Barangay Clearance</option><option>Certificate of Indigency</option>
+              <option>Certificate of Residency</option><option>Barangay ID</option><option>Other</option>
+
+            </select>
+
+          </label>
+          <label class="full">Purpose of Request *<textarea name="purpose" rows="3" required maxlength="500" placeholder="Briefly explain why you need this document."></textarea></label>
+          <label class="full">Additional Notes (Optional)<textarea name="notes" rows="2" maxlength="500" placeholder="Other information you want the barangay office to know."></textarea></label>
+        
+        </div>
+        <div class="form-footer"><p>Your information will be used to process this barangay request.</p><button class="btn" type="submit">Submit Request <span>→</span></button></div>
+        <div id="formMessage" class="message" role="status" aria-live="polite"></div>
+      
+      </form>
+
+    </section>
+    <section class="info-strip"><div><strong>01</strong><span>Fill out the form</span></div><div><strong>02</strong><span>Submit your request</span></div><div><strong>03</strong><span>Wait for admin review</span></div></section>
+  
+  </main>
+  
+  <!-- HELP MODAL -->
+<dialog id="helpDialog" class="help-dialog">
+
+  <div class="help-header">
+    <div>
+      <p class="eyebrow">USER GUIDE</p>
+      <h2>How to Use the System</h2>
+    </div>
+
+    <button type="button" id="closeHelp" class="close-help">
+      &times;
+    </button>
+  </div>
+
+  <div class="help-content">
+
+    <div class="help-item">
+      <div class="help-number">01</div>
+      <div>
+        <h3>Enter Your Personal Information</h3>
+        <p>Provide your complete name, email address,
+        contact number, and residential address.</p>
+      </div>
+    </div>
+
+    <div class="help-item">
+      <div class="help-number">02</div>
+      <div>
+        <h3>Select Your Document</h3>
+        <p>Choose the barangay document you want to request,
+        such as Barangay Clearance or Certificate of Residency.</p>
+      </div>
+    </div>
+
+    <div class="help-item">
+      <div class="help-number">03</div>
+      <div>
+        <h3>Provide the Purpose</h3>
+        <p>Explain why you need the requested document.
+        You may also add additional notes.</p>
+      </div>
+    </div>
+
+    <div class="help-item">
+      <div class="help-number">04</div>
+      <div>
+        <h3>Submit Your Request</h3>
+        <p>Review your information and click the Submit Request
+        button to send your application.</p>
+      </div>
+    </div>
+
+    <div class="help-item">
+      <div class="help-number">05</div>
+      <div>
+        <h3>Save Your Reference Number</h3>
+        <p>After submitting, you will receive a reference number.
+        Keep it for future follow-up with the barangay office.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="help-footer">
+    <p>Need further assistance? Please visit or contact
+    your barangay office.</p>
+
+    <button type="button" id="gotItBtn" class="btn">
+      Got It!
+    </button>
+  </div>
+
+</dialog>
+
+  <footer><div class="container">Barangay Online Request Form · For authorized barangay use</div></footer>
+  <script src="/app.js"></script>
+
+</body></html>

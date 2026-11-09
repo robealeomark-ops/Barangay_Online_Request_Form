@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | Barangay Online Request</title><link rel="stylesheet" href="/styles.css">
+</head>
+<body class="admin-body">
+  <header class="site-header"><div class="container nav"><a class="brand" href="/">BRGY<span>ONLINE</span></a><a class="nav-link" href="/">Public Form</a></div></header>
+  <main class="container admin-main">
+    <section id="loginPanel" class="form-card login-card">
+      <p class="eyebrow">AUTHORIZED PERSONNEL</p><h1>Administrator Login</h1>
+      <p class="muted">Sign in to manage resident document requests.</p>
+      <form id="loginForm">
+        <label>Username<input name="username" required autocomplete="username"></label>
+        <label>Password<input name="password" type="password" required autocomplete="current-password"></label>
+        <button class="btn" type="submit">Sign In</button><div id="loginMessage" class="message" role="status"></div>
+      </form>
+    </section>
+    <section id="dashboard" hidden>
+      <div class="dashboard-heading"><div><p class="eyebrow">MANAGEMENT PANEL</p><h1>Request Dashboard</h1><p class="muted">Review, update, and manage submitted requests.</p></div><button id="logoutBtn" class="btn btn-light">Log Out</button></div>
+      <div class="stats">
+        <div class="stat-card"><span>Total Requests</span><strong id="totalCount">0</strong></div>
+        <div class="stat-card"><span>Pending</span><strong id="pendingCount">0</strong></div>
+        <div class="stat-card"><span>Processing</span><strong id="processingCount">0</strong></div>
+        <div class="stat-card"><span>Completed</span><strong id="completedCount">0</strong></div>
+      </div>
+      <section class="table-card">
+        <div class="table-toolbar"><div><h2>Submitted Requests</h2><p class="muted">Select a record to view or edit its details.</p></div>
+          <div class="filters"><input id="searchInput" placeholder="Search name or reference..."><select id="statusFilter"><option value="">All statuses</option><option>Pending</option><option>Processing</option><option>Ready for Pickup</option><option>Completed</option><option>Rejected</option></select></div>
+        </div>
+        <div class="table-wrap"><table><thead><tr><th>Reference</th><th>Resident</th><th>Document</th><th>Date</th><th>Status</th><th>Actions</th></tr></thead><tbody id="requestsBody"><tr><td colspan="6">Loading requests...</td></tr></tbody></table></div>
+        <p id="dashboardMessage" class="message" role="status"></p>
+      </section>
+    </section>
+  </main>
+  <dialog id="editDialog" class="edit-dialog">
+    <form id="editForm" method="dialog">
+      <div class="dialog-heading"><div><p class="eyebrow">REQUEST RECORD</p><h2>Edit Request</h2></div><button type="button" id="closeDialog" class="close-btn" aria-label="Close">×</button></div>
+      <input type="hidden" name="id">
+      <div class="form-grid">
+        <label>Reference Number<input name="referenceNumber" disabled></label>
+        <label>Full Name<input name="fullName" required maxlength="100"></label>
+        <label>Email<input name="email" type="email" required></label>
+        <label>Contact Number<input name="contactNumber" required></label>
+        <label>Address<input name="address" required></label>
+        <label>Document<select name="documentType"><option>Barangay Clearance</option><option>Certificate of Indigency</option><option>Certificate of Residency</option><option>Barangay ID</option><option>Other</option></select></label>
+        <label>Status<select name="status"><option>Pending</option><option>Processing</option><option>Ready for Pickup</option><option>Completed</option><option>Rejected</option></select></label>
+        <label class="full">Purpose<textarea name="purpose" rows="2" required></textarea></label>
+        <label class="full">Notes<textarea name="notes" rows="2"></textarea></label>
+      </div>
+      <div class="dialog-actions"><button type="button" id="cancelEdit" class="btn btn-light">Cancel</button><button type="submit" class="btn">Save Changes</button></div>
+      <div id="editMessage" class="message"></div>
+    </form>
+  </dialog>
+  <script src="/admin.js"></script>
+</body></html>
